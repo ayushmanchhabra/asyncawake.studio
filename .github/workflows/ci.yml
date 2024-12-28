@@ -20,6 +20,8 @@ jobs:
         run: npm ci
       - name: Check for linting warnings and errors
         run: npm run lint
+      - name: Check for build errors
+        run: npm run build
       - name: Run tests
         run: npm run test
       - name: Report Coverage
