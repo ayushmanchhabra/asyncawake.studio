@@ -15,6 +15,7 @@ export default function usePost(initialDate: string | undefined): { post: string
     const [error, setError] = React.useState<string>('');
     const [loading, setLoading] = React.useState<boolean>(false);
 
+    // Change this to branch name to `main` before pushing to `main`.
     const GIT_BRANCH = 'blog';
 
     React.useEffect(function () {
