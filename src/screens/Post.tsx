@@ -1,4 +1,4 @@
-import { Box, Link, List, ListItem } from "@mui/material";
+import { Box, Link, List, ListItem, Typography } from "@mui/material";
 import Markdown from 'react-markdown'
 import { useParams } from "react-router-dom";
 
@@ -14,15 +14,20 @@ export default function Post() {
 
     return (
         <Box style={{ display: 'block' }}>
-            <Markdown>{post}</Markdown>
+            <div style={{ textAlign: 'left' }}>
+                <Markdown>{post}</Markdown>
+            </div>
 
-            {posts.map((post) => (
-                <List key={post.date}>
-                    <ListItem>
+            <List>
+                <ListItem style={{ paddingLeft: 0 }}>
+                    <Link href={`/`}>Go back to main page</Link>
+                </ListItem>
+                {posts.map((post) => (
+                    <ListItem key={post.date} style={{ paddingLeft: 0 }}>
                         <Link href={`/post/${post.date}`}>{post.name}</Link>
                     </ListItem>
-                </List>
-            ))}
+                ))}
+            </List>
         </Box>
     );
 }
