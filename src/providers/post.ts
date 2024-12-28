@@ -27,8 +27,9 @@ export default function usePost(initialDate: string | undefined): { post: string
     }, [initialDate]);
 
     React.useEffect(function () {
-        setLoading(true);
-        axios.get(`https://raw.githubusercontent.com/ayushmanchhabra/asyncawake.studio/refs/heads/${GIT_BRANCH}/src/content/${date}.md`)
+        if (date) {
+            setLoading(true);
+            axios.get(`https://raw.githubusercontent.com/ayushmanchhabra/asyncawake.studio/refs/heads/${GIT_BRANCH}/src/content/${date}.md`)
             .then((response: AxiosResponse) => response.data)
             .then((post: string) => {
                 setPost(post);
@@ -39,6 +40,7 @@ export default function usePost(initialDate: string | undefined): { post: string
             .finally(() => {
                 setLoading(false);
             });
+        }
     }, [date]);
 
     return { post, error, loading };
