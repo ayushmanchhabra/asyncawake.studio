@@ -20,7 +20,7 @@ export default function Post() {
 
             <List>
                 <ListItem style={{ paddingLeft: 0 }}>
-                    <Link href={`/`}>Go back to main page</Link>
+                    <Link data-testid="posts-backtomainpage" href={`/`}>Go back to main page</Link>
                 </ListItem>
                 {posts.map((post) => (
                     <ListItem key={post.date} style={{ paddingLeft: 0 }}>
