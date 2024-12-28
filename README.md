@@ -1,3 +1,3 @@
 # asyncawake.studio
 
-Official website for Async Awake Studio.
+A technology blog about coding, software engineering, cyber security and more.

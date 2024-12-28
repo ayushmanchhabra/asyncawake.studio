@@ -5,7 +5,8 @@ export default function Home() {
         <Box>
             <Typography style={{ textAlign: 'left' }} variant="h4">Async Awake</Typography>
             <br />
-            <Typography style={{ textAlign: 'left' }} variant='subtitle1'>A technology blog with topics ranging from coding to software engineering to cyber security.</Typography>
+            <Typography style={{ textAlign: 'left' }} variant='subtitle1'>A technology blog about coding, software engineering, cyber security and more.
+            </Typography>
             <List>
                 <ListItem style={{ paddingLeft: 0 }}>
                     <Link href={`/post`}>Posts</Link>
