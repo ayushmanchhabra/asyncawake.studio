@@ -1,4 +1,4 @@
-import { Box, Link, List, ListItem, Typography } from "@mui/material";
+import { Box, Link, List, ListItem } from "@mui/material";
 import Markdown from 'react-markdown'
 import { useParams } from "react-router-dom";
 

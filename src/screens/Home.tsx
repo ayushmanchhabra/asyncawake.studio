@@ -1,5 +1,4 @@
 import { Box, Link, List, ListItem, Typography } from "@mui/material";
-import post from "../providers/post";
 
 export default function Home() {
     return (

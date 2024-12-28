@@ -33,8 +33,8 @@ export default function usePost(initialDate: string | undefined): { post: string
             .then((post: string) => {
                 setPost(post);
             })
-            .catch((error: any) => {
-                setError(error as string);
+            .catch((error: AxiosResponse<string>) => {
+                setError(error.data);
             })
             .finally(() => {
                 setLoading(false);
