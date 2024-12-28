@@ -24,7 +24,7 @@ export default function Post() {
                 </ListItem>
                 {posts.map((post) => (
                     <ListItem key={post.date} style={{ paddingLeft: 0 }}>
-                        <Link href={`/post/${post.date}`}>{post.name}</Link>
+                        <Link href={`#/post/${post.date}`}>{post.name}</Link>
                     </ListItem>
                 ))}
             </List>
