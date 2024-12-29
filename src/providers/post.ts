@@ -16,7 +16,7 @@ export default function usePost(initialDate: string | undefined): { post: string
     const [loading, setLoading] = React.useState<boolean>(false);
 
     // Change this to branch name to `main` before pushing to `main`.
-    const GIT_BRANCH = 'author';
+    const GIT_BRANCH = 'main';
 
     React.useEffect(function () {
         if (initialDate && isMatch(initialDate, 'yyyy-mm-dd')) {
