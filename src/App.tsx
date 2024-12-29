@@ -5,7 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import { Home, Post } from "./screens";
+import { Author, Home, Post } from "./screens";
 
 import './App.css'
 
@@ -26,6 +26,15 @@ function App() {
             <Route
               element={<Post />}
               path=':date'
+            />
+          </Route>
+          <Route
+            element={<Author />}
+            path='/author'
+          >
+            <Route
+              element={<Author />}
+              path=':name'
             />
           </Route>
         </Routes>
