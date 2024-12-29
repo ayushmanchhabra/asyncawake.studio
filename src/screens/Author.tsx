@@ -11,14 +11,14 @@ export default function Author() {
     const [postsByAuthor, setPostsByAuthor] = React.useState<{ name: string, author: string, date: string }[]>([]);
 
     React.useEffect(() => {
-        let tmpPosts = [];
+        const tmpPosts = [];
         for (const post of posts) {
             if (post.author === name) {
                 tmpPosts.push(post);
             }
         }
         setPostsByAuthor(tmpPosts);
-    }, []);
+    }, [name]);
 
     return (
         <Box style={{ display: 'block' }}>
