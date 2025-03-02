@@ -18,7 +18,7 @@ jobs:
         uses: volta-cli/action@v4.2.1
       - name: Install third party dependencies
         run: npm ci
-      - name: Check for linting warnings and errors
+      - name: Check for lint warnings/errors
         run: npm run lint
       - name: Check for build errors
         run: npm run build
