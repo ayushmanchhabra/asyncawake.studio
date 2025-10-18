@@ -1,5 +1,10 @@
 [
     {
+        "name": "OS command injection",
+        "author": "Ayushman Chhabra",
+        "date": "2025-10-01"
+    },
+    {
         "name": "Ideas",
         "author": "Ayushman Chhabra",
         "date": "2025-09-01"
