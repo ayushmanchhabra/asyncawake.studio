@@ -1,8 +1,6 @@
 import { Box, Link, List, ListItem } from "@mui/material";
-import Markdown from 'react-markdown'
+import Markdown from 'react-markdown';
 import { useParams } from "react-router-dom";
-
-import { usePost } from "../providers";
 
 import {
     IMG_20251001_1,
@@ -13,11 +11,10 @@ import {
     IMG_20251001_6
 } from '../assets/index';
 import posts from '../content/posts.json';
+import { usePost } from "../providers";
 
 export default function Post() {
-
     const { date } = useParams();
-
     const { post } = usePost(date);
 
     const images: Record<string, string> = {
@@ -30,13 +27,23 @@ export default function Post() {
     };
 
     return (
-        <Box style={{ display: 'block' }}>
+        <Box>
             <div style={{ textAlign: 'left' }}>
                 <Markdown
                     components={{
                         img: ({ src, alt, ...props }) => {
-                            const resolvedSrc = `https://github.com/ayushmanchhabra/asyncawake.studio/blob/staging/img/${images[src as string] || src}`;
-                            return <img src={resolvedSrc} alt={alt} {...props}  style={{ width: '100%' }} />;
+                            const resolvedSrc = images[src as string]; // get imported asset
+                            if (!resolvedSrc) {
+                                console.warn(`Image not found: ${src}`);
+                            }
+                            return (
+                                <img
+                                    {...props}
+                                    src={resolvedSrc || src}
+                                    alt={alt}
+                                    style={{ width: '100%' }}
+                                />
+                            );
                         },
                     }}
                 >
@@ -48,9 +55,9 @@ export default function Post() {
                 <ListItem style={{ paddingLeft: 0 }}>
                     <Link data-testid="posts-backtomainpage" href={`/`}>Go back to main page</Link>
                 </ListItem>
-                {posts.map((post) => (
-                    <ListItem key={post.date} style={{ paddingLeft: 0 }}>
-                        <Link href={`#/post/${post.date}`}>{post.name}</Link>
+                {posts.map((p) => (
+                    <ListItem key={p.date} style={{ paddingLeft: 0 }}>
+                        <Link href={`#/post/${p.date}`}>{p.name}</Link>
                     </ListItem>
                 ))}
             </List>
