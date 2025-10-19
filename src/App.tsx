@@ -21,7 +21,7 @@ function App() {
           />
           <Route
             element={<Post />}
-            path='/post'
+            path='/blog/post'
           >
             <Route
               element={<Post />}
@@ -30,7 +30,7 @@ function App() {
           </Route>
           <Route
             element={<Author />}
-            path='/author'
+            path='/blog/author'
           >
             <Route
               element={<Author />}

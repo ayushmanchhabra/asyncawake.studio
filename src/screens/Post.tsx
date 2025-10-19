@@ -10,12 +10,25 @@ import {
     IMG_20251001_5,
     IMG_20251001_6
 } from '../assets/index';
-import posts from '../content/posts.json';
-import { usePost } from "../providers";
+import {
+    POST_20241228,
+    POST_20250401,
+    POST_20250801,
+    POST_20250901,
+    POST_20251001,
+    postsInfo,
+} from "../content/index";
 
 export default function Post() {
     const { date } = useParams();
-    const { post } = usePost(date);
+
+    const posts: Record<string, string> = {
+        '2024-12-28.md': POST_20241228,
+        '2025-04-01.md': POST_20250401,
+        '2025-08-01.md': POST_20250801,
+        '2025-09-01.md': POST_20250901,
+        '2025-10-01.md': POST_20251001,
+    };
 
     const images: Record<string, string> = {
         '2025-10-01_1.jpeg': IMG_20251001_1,
@@ -41,23 +54,29 @@ export default function Post() {
                                     {...props}
                                     src={resolvedSrc || src}
                                     alt={alt}
-                                    style={{ width: '100%' }}
+                                    style={{
+                                        maxHeight: 400,
+                                        maxWidth: '100%',
+                                        border: '1px solid #ccc',
+                                    }}
                                 />
                             );
                         },
                     }}
                 >
-                    {post}
+                    {posts[date + '.md']}
                 </Markdown>
             </div>
 
+            <br />
+
             <List>
                 <ListItem style={{ paddingLeft: 0 }}>
-                    <Link data-testid="posts-backtomainpage" href={`/`}>Go back to main page</Link>
+                    <Link data-testid="posts-backtomainpage" href={`/`}>Home</Link>
                 </ListItem>
-                {posts.map((p) => (
-                    <ListItem key={p.date} style={{ paddingLeft: 0 }}>
-                        <Link href={`#/post/${p.date}`}>{p.name}</Link>
+                {postsInfo.map((post) => (
+                    <ListItem key={post.date} style={{ paddingLeft: 0 }}>
+                        <Link href={`#/blog/post/${post.date}`}>{post.name}</Link>
                     </ListItem>
                 ))}
             </List>

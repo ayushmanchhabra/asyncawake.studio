@@ -31,7 +31,7 @@ export default function Author() {
                 <br />
                 {postsByAuthor.map((post) => (
                     <ListItem key={post.date} style={{ paddingLeft: 0 }}>
-                        <Link href={`#/post/${post.date}`}>{post.name}</Link>
+                        <Link href={`#/blog/post/${post.date}`}>{post.name}</Link>
                     </ListItem>
                 ))}
             </List>

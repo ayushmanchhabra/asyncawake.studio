@@ -10,7 +10,7 @@ export default function Home() {
             </Typography>
             <List>
                 <ListItem style={{ paddingLeft: 0 }}>
-                    <Link data-testid="home-posts" href={`#/post`}>Posts</Link>
+                    <Link data-testid="home-posts" href={`#/blog/post`}>Posts</Link>
                 </ListItem>
             </List>
         </Box>
