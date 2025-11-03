@@ -15,7 +15,7 @@ describe("Post", () => {
     });
 
     it("renders renders back to main page", () => {
-        expect(screen.getByTestId("posts-backtomainpage").textContent).toBe('Go back to main page');
+        expect(screen.getByTestId("posts-backtomainpage").textContent).toBe('Home');
     });
 
     afterEach(() => {
