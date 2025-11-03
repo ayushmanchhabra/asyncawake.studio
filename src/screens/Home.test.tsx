@@ -23,7 +23,7 @@ describe("Home", () => {
     });
 
     it("renders renders posts", () => {
-        expect(screen.getByTestId("home-posts").textContent).toBe('Posts');
+        expect(screen.getByTestId("home-posts").textContent).toBe('Blog');
     });
 
     afterEach(() => {
