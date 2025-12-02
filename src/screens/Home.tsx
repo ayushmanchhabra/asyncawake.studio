@@ -8,6 +8,9 @@ export default function Home() {
             <Typography data-testid="home-subtitle" style={{ textAlign: 'left' }} variant='subtitle1'>
                 A technology blog about coding, software engineering, cyber security and more.
             </Typography>
+            <Typography data-testid="home-subtitle" style={{ display: "none" }} variant='subtitle1'>
+                We build accessible, performant reaponsive and secure applications.
+            </Typography>
             <List>
                 <ListItem style={{ paddingLeft: 0 }}>
                     <Link data-testid="home-posts" href={`#/blog/post`}>Blog</Link>
