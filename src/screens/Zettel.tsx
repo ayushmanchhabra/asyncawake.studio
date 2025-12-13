@@ -1,4 +1,4 @@
-import { Backdrop, Box, IconButton, Link, TextField, Tooltip, Typography } from '@mui/material';
+import { Backdrop, Box, IconButton, TextField, Tooltip, Typography } from '@mui/material';
 import { ModeEdit as EditModeIcon, Preview as PreviewModeIcon, SaveAlt as SaveIcon, QrCodeScanner } from '@mui/icons-material';
 import React from 'react';
 import Markdown from 'react-markdown';
@@ -44,25 +44,25 @@ export default function Zettel() {
     }
   }, [hash]);
 
-  const handleContentChange = React.useCallback(function (event: React.ChangeEvent<HTMLTextAreaElement>) {
+  const handleContentChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setContent(event.target.value);
-  }, []);
+  };
 
-  const handleSaveAction = React.useCallback(function (event: React.KeyboardEvent<HTMLDivElement>) {
+  const handleSaveAction = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.ctrlKey && event.key === 's') {
       event.preventDefault();
       const encoded = save({ content })
       navigate(`/service/zk/${encoded}`);
     }
-  }, [navigate, content]);
+  };
 
-  const handleModeChange = React.useCallback(function () {
+  const handleModeChange = () => {
     setMode(mode === 'Edit' ? 'Preview' : 'Edit');
-  }, [mode]);
+  };
 
-  const handleQRVisibleChange = React.useCallback(function () {
+  const handleQRVisibleChange = () => {
     setIsQRVisible(!isQRVisible);
-  }, [isQRVisible]);
+  };
 
   function save(data: AppSchema): string {
     const stateString = JSON.stringify(data);
