@@ -5,7 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import { Author, Home, Post } from "./screens";
+import { Author, Home, Post, Zettel } from "./screens";
 
 import './App.css'
 
@@ -15,28 +15,15 @@ function App() {
     <StyledEngineProvider injectFirst>
       <Router>
         <Routes>
-          <Route
-            element={<Home />}
-            path='/'
-          />
-          <Route
-            element={<Post />}
-            path='/blog/post'
-          >
-            <Route
-              element={<Post />}
-              path=':date'
-            />
-          </Route>
-          <Route
-            element={<Author />}
-            path='/blog/author'
-          >
-            <Route
-              element={<Author />}
-              path=':name'
-            />
-          </Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/blog/post" element={<Post />} />
+          <Route path="/blog/post/:date" element={<Post />} />
+
+          <Route path="/blog/author" element={<Author />} />
+          <Route path="/blog/author/:name" element={<Author />} />
+
+          <Route path="/service/zk/:hash?" element={<Zettel />} />
+          {/* <Route path="/service/zk/:hash" element={<Zettel />} /> */}
         </Routes>
       </Router>
     </StyledEngineProvider>
