@@ -12,6 +12,9 @@ export default function Home() {
                 <ListItem style={{ paddingLeft: 0 }}>
                     <Link data-testid="home-posts" href={`#/blog/post`}>Blog</Link>
                 </ListItem>
+                <ListItem style={{ paddingLeft: 0 }}>
+                    <Link data-testid="home-zk" href={`#/service/zk`}>Zettelkasten</Link>
+                </ListItem>
             </List>
         </Box>
     );
